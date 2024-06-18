@@ -55,7 +55,7 @@ public class Facinpro_VendedorControle {
         if (vended.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não Encontrado");
         }
-        var facinpro_VendedorModelo = new Facinpro_VendedorModelo();
+        Facinpro_VendedorModelo facinpro_VendedorModelo = vended.get();
         BeanUtils.copyProperties(facinpro_VendedorDtos, facinpro_VendedorModelo);
         return ResponseEntity.status(HttpStatus.OK).body(facinpro_VendedorRepositorio.save(facinpro_VendedorModelo));
     }
@@ -67,7 +67,7 @@ public class Facinpro_VendedorControle {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não Encontrado");
         }
         facinpro_VendedorRepositorio.delete(vended.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Produto excluido com sucesso");
+        return ResponseEntity.status(HttpStatus.OK).body("Vendedor excluido com sucesso");
     }
 
 

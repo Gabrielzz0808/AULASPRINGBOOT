@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 
 
+
 @Entity
 @Table(name = "TB_PRODUTOS")
 public class Facinpro_ProdutoModelo extends RepresentationModel<Facinpro_ProdutoModelo> implements Serializable {

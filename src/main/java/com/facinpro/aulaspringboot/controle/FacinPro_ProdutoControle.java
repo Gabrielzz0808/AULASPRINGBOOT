@@ -48,7 +48,7 @@ public class FacinPro_ProdutoControle {
         if(productO.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado");
         }
-        return null;
+        return ResponseEntity.status(HttpStatus.OK).body(productO.get());
     }
 
     @PutMapping("/produto{id}")
@@ -57,7 +57,7 @@ public class FacinPro_ProdutoControle {
         if(Produto.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado.");
         }
-        var facinpro_ProdutoModelo = new Facinpro_ProdutoModelo();
+        Facinpro_ProdutoModelo facinpro_ProdutoModelo = Produto.get();
         BeanUtils.copyProperties(facinPro_ProdutoRecordDto, facinpro_ProdutoModelo);
         return ResponseEntity.status(HttpStatus.OK).body(facinPro_ProdutoRepositorio.save(facinpro_ProdutoModelo));
     }
